@@ -7,17 +7,39 @@ L'output del prezzo finale va messo fuori in forma umana (con massimo due decima
 L'output va stampato nella pagina HTML.*/
 
 // Chiedere al passeggero età e km necessari
+const kmPrice = 0.21;
 const travelDistance = parseInt(prompt("Quanti chilometri devi percorrere?"));
-console.log(travelDistance, typeof(travelDistance));
-
 const passengerAge = parseInt(prompt("Quanti anni hai?"));
-console.log(passengerAge, typeof(passengerAge));
+console.log(travelDistance, typeof(travelDistance), passengerAge, typeof(passengerAge));
 
 // Calcola prezzo biglietto standard
+const ticketPrice = travelDistance * kmPrice;
+console.log(ticketPrice);
 
 // Calcola lo sconto per minorenni
+const underageDiscount = ((ticketPrice * 20)/100);
+console.log(underageDiscount);
+const underageTicketPrice = ticketPrice - underageDiscount;
+console.log(underageTicketPrice);
 
 // Calcola lo sconto senior
+const seniorDiscount = ((ticketPrice * 40)/100);
+console.log(seniorDiscount);
+const seniorTicketPrice = ticketPrice - seniorDiscount;
+console.log(seniorTicketPrice);
 
+// Determina se il passeggero ha diritto ad uno sconto
+let finalPrice;
 
+if (passengerAge < 18) {
+    finalPrice = underageTicketPrice;
+} else if (passengerAge >= 65) {
+    finalPrice = seniorTicketPrice;
+} else {
+    finalPrice = ticketPrice;
+}
 
+console.log(finalPrice);
+
+// output
+document.getElementById('ticket').innerHTML = finalPrice;
