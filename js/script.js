@@ -17,10 +17,10 @@ const ticketPrice = travelDistance * kmPrice;
 console.log(ticketPrice);
 
 // Calcola lo sconto per minorenni
-const underageDiscount = ((ticketPrice * 20)/100);
-console.log(underageDiscount);
-const underageTicketPrice = ticketPrice - underageDiscount;
-console.log(underageTicketPrice);
+const juniorDiscount = ((ticketPrice * 20)/100);
+console.log(juniorDiscount);
+const juniorTicketPrice = ticketPrice - juniorDiscount;
+console.log(juniorTicketPrice);
 
 // Calcola lo sconto senior
 const seniorDiscount = ((ticketPrice * 40)/100);
@@ -32,14 +32,15 @@ console.log(seniorTicketPrice);
 let finalPrice;
 
 if (passengerAge < 18) {
-    finalPrice = underageTicketPrice;
+    finalPrice = juniorTicketPrice;
 } else if (passengerAge >= 65) {
     finalPrice = seniorTicketPrice;
 } else {
     finalPrice = ticketPrice;
 }
 
-console.log(finalPrice);
+let roundedFinalPrice = finalPrice.toFixed(2);
+console.log(roundedFinalPrice);
 
 // output
-document.getElementById('ticket').innerHTML = finalPrice;
+document.getElementById('ticket-price').innerHTML = roundedFinalPrice;
