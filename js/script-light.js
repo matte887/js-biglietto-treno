@@ -20,9 +20,7 @@ if (passengerAge < 18) {
     ticketPrice = seniorTicketPrice;
 }
 
-// Arrotonda il prezzo
-let roundedticketPrice = ticketPrice.toFixed(2);
-console.log(roundedticketPrice);
+console.log(ticketPrice);
 
 // output
-document.getElementById('ticket-price').innerHTML = roundedticketPrice;
+document.getElementById('ticket-price').innerHTML = `Il prezzo del biglietto è € ${ticketPrice.toFixed(2)}`;
